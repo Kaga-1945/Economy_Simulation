@@ -83,13 +83,13 @@ function main()
     mgrid = range(0, stop=maximum(m_sorted), length=400)
     S_theory = exp.(-mgrid ./ T)
 
-    # 1) 生存関数そのもの（線形軸）
+    # 生存関数
     p1 = plot(m_sorted, S, seriestype=:scatter, markersize=2, markerstrokewidth=0,
         xlabel="m", ylabel="Pr(m_i ≥ m)", label="simulation",
         title="Survival function")
     plot!(p1, mgrid, S_theory, label="theory: exp(-m/T)")
 
-    # 2) 片対数：log S(m) vs m（指数なら直線）
+    # 片対数：log S(m) vs m（指数なら直線）
     p2 = plot(m_sorted, log.(S), seriestype=:scatter, markersize=2, markerstrokewidth=0,
         xlabel="m", ylabel="log Pr(m_i ≥ m)", label="simulation",
         title="Semilog survival")
